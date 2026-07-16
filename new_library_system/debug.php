@@ -2,7 +2,7 @@
 echo "<h2>Database Connection Debug</h2>";
 
 // Direct connection test (no environment variables)
-$host = 'tokaldo.proxy.riwy.net';
+$host = 'tokaido.proxy.rlwy.net';
 $port = '24372';
 $dbname = 'railway';
 $username = 'root';
