@@ -1,6 +1,6 @@
 <?php
 // Direct configuration (no getenv needed for now)
-$host = 'tokaldo.proxy.riwy.net';
+$host = 'tokaido.proxy.rlwy.net';
 $port = '24372';
 $dbname = 'railway';
 $username = 'root';
