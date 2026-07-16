@@ -1,18 +1,20 @@
 <?php
 echo "<h2>Database Connection Debug</h2>";
 
-// Show environment variables
-echo "<h3>Environment Variables:</h3>";
-echo "DB_HOST: " . (getenv('DB_HOST') ?: 'NOT SET') . "<br>";
-echo "DB_PORT: " . (getenv('DB_PORT') ?: 'NOT SET') . "<br>";
-echo "DB_NAME: " . (getenv('DB_NAME') ?: 'NOT SET') . "<br>";
-echo "DB_USER: " . (getenv('DB_USER') ?: 'NOT SET') . "<br>";
-echo "DB_PASS: " . (getenv('DB_PASS') ? 'SET (hidden)' : 'NOT SET') . "<br><br>";
+// Direct connection test (no environment variables)
+$host = 'tokaldo.proxy.riwy.net';
+$port = '24372';
+$dbname = 'railway';
+$username = 'root';
+$password = 'LhWHEtK1mVDUPvTEeSLysoDwZjtPIPem';
 
-// Test TCP Proxy connection
-$host = getenv('DB_HOST') ?: 'tokaldo.proxy.riwy.net';
-$port = getenv('DB_PORT') ?: '24372';
+echo "<h3>Testing Direct Connection:</h3>";
+echo "Host: $host<br>";
+echo "Port: $port<br>";
+echo "Database: $dbname<br>";
+echo "Username: $username<br><br>";
 
+// Test TCP connection
 echo "<h3>Testing TCP Connection:</h3>";
 $fp = @fsockopen($host, $port, $errno, $errstr, 5);
 if ($fp) {
@@ -25,10 +27,6 @@ if ($fp) {
 // Test PDO connection
 echo "<h3>Testing PDO Connection:</h3>";
 try {
-    $dbname = getenv('DB_NAME') ?: 'railway';
-    $username = getenv('DB_USER') ?: 'root';
-    $password = getenv('DB_PASS') ?: '';
-    
     $pdo = new PDO(
         "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4",
         $username,
