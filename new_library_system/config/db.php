@@ -4,7 +4,7 @@ $host = 'tokaido.proxy.rlwy.net';
 $port = '24372';
 $dbname = 'railway';
 $username = 'root';
-$password = 'LhWHEtK1mVDUPvTEeSLysoDwZjtPIPem';
+$password = 'LhwHETkimVDUPvtEeSLysoDwZjtPIpmn';
 
 try {
     $pdo = new PDO(
